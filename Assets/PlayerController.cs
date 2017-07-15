@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float _moveForce = 10.0f;
     [SerializeField] float _dragCoeff = 10.0f;
+    [SerializeField] float _jumpImpulse = 5.0f;
     Rigidbody _rb;
 
     void Start()
@@ -15,6 +16,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            _rb.AddForce(_jumpImpulse * Vector3.up, ForceMode.Impulse);
+        }
+
         if (Input.GetKey(KeyCode.W)) _rb.AddForce(_moveForce * Vector3.forward);
         if (Input.GetKey(KeyCode.S)) _rb.AddForce(_moveForce * Vector3.back);
         if (Input.GetKey(KeyCode.A)) _rb.AddForce(_moveForce * Vector3.left);
