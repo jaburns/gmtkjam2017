@@ -13,8 +13,6 @@ public class BulletController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _rb.velocity = direction * _speed;
-        Debug.Log(_rb.velocity);
-
         StartCoroutine(killIt());
     }
 
