@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     int _livingBullets = 0;
     bool _pressedSpace = false;
 
+    bool _clickDrinking = false;
+    bool _clickShooting = false;
+    bool _clickDone = false;
+
     public float PersonalBlood { get; private set; }
     public float LivingBulletBlood { get { return _livingBullets * _bloodPerBullet; } }
 
@@ -62,10 +66,24 @@ public class PlayerController : MonoBehaviour
         _rb.AddForce(_curMovement.DragCoeff * -v_xz);
 
         if (Input.GetMouseButton(0)) {
-            if (_inBlood) {
-                drink();
-            } else {
-                shoot();
+            if (!_clickDrinking && !_clickShooting) {
+                if (_inBlood) _clickDrinking = true;
+                else          _clickShooting = true;
+            }
+        } else {
+            _clickDone = false;
+            _clickDrinking = false;
+            _clickShooting = false;
+        }
+
+        if (!_clickDone) {
+            if (_clickDrinking) {
+                if (_inBlood) drink();
+                else _clickDone = true;
+            }
+            else if (_clickShooting) {
+                if (!_inBlood) shoot();
+                else _clickDone = true;
             }
         }
     }
