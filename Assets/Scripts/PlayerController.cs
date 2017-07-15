@@ -18,21 +18,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _bulletPrefab;
     [SerializeField] GameObject _bloodMeter;
     [SerializeField] float _bloodDrinkSpeed;
+    [SerializeField] float _bloodPerBullet;
 
     bool _inBlood = false;
     BloodController _bloodController;
     MovementParams _curMovement;
     Rigidbody _rb;
     int _grounded;
+    int _livingBullets = 0;
     bool _pressedSpace = false;
 
-    float _personalBlood = 1.0f;
+    public float PersonalBlood { get; private set; }
+    public float LivingBulletBlood { get { return _livingBullets * _bloodPerBullet; } }
 
     void Start()
     {
         _bloodController = FindObjectOfType<BloodController>();
         _rb = GetComponent<Rigidbody>();
         _curMovement = _airMovement;
+        PersonalBlood = 1.0f;
     }
 
     void FixedUpdate()
@@ -68,22 +72,24 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        _bloodMeter.transform.localScale += Vector3.up * (_personalBlood - _bloodMeter.transform.localScale.y) / 2.0f;
+        _bloodMeter.transform.localScale += Vector3.up * (PersonalBlood - _bloodMeter.transform.localScale.y) / 2.0f;
     }
 
     void drink()
     {
-        if (_personalBlood >= 1.0f) return;
+        if (PersonalBlood >= 1.0f) return;
+        PersonalBlood += _bloodDrinkSpeed;
+        if (PersonalBlood > 1.0f) PersonalBlood = 1.0f;
+    }
 
-        var oldBlood = _personalBlood;
-        _personalBlood += _bloodDrinkSpeed;
-        if (_personalBlood > 1.0f) _personalBlood = 1.0f;
-        _bloodController.ChangeHeight(oldBlood - _personalBlood);
+    public void NotifyBulletDied()
+    {
+        _livingBullets--;
     }
 
     void shoot()
     {
-        if (_personalBlood < 0.1f) return;
+        if (PersonalBlood < 0.1f) return;
 
         var playerPlane = new Plane(Vector3.up, _rb.position);
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -94,8 +100,9 @@ public class PlayerController : MonoBehaviour
 
         var bullet = Instantiate(_bulletPrefab, _rb.position, Quaternion.identity) as GameObject;
         var bc = bullet.GetComponent<BulletController>();
-        bc.Init(_bloodController, aimVec);
-        _personalBlood -= bc.BloodAmount;
+        bc.Init(this, aimVec);
+        _livingBullets++;
+        PersonalBlood -= _bloodPerBullet;
     }
 
     void OnEnterBlood()

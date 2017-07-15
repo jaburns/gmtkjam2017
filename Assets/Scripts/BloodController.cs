@@ -6,16 +6,24 @@ public class BloodController : MonoBehaviour
 {
     [SerializeField] float _heightPerBloodAmount = 1.0f;
 
+    PlayerController _player;
     Rigidbody _rb;
+    float _baseY;
 
     void Start()
     {
+        _player = FindObjectOfType<PlayerController>();
         _rb = GetComponent<Rigidbody>();
+        _baseY = _rb.position.y + _heightPerBloodAmount;
     }
 
-    public void ChangeHeight(float deltaBlood)
+    void FixedUpdate()
     {
-        _rb.MovePosition(_rb.position + Vector3.up * _heightPerBloodAmount * deltaBlood);
+        _rb.MovePosition(new Vector3(
+            _rb.position.x, 
+            _baseY - _heightPerBloodAmount * (_player.PersonalBlood + _player.LivingBulletBlood),
+            _rb.position.z
+        ));
     }
 }
 

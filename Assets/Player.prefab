@@ -122,6 +122,7 @@ MonoBehaviour:
     type: 2}
   _bloodMeter: {fileID: 0}
   _bloodDrinkSpeed: 0.01
+  _bloodPerBullet: 0.01
 --- !u!135 &135251870458694298
 SphereCollider:
   m_ObjectHideFlags: 1
