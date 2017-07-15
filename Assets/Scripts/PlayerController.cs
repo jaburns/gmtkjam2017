@@ -31,8 +31,6 @@ public class PlayerController : MonoBehaviour
     {
         if(_rb.IsSleeping()) _rb.WakeUp();
 
-        Debug.Log(_grounded);
-
         if (_grounded > 0) {
             if (Input.GetKey(KeyCode.Space) && !_pressedSpace) {
                 _rb.AddForce(_curMovement.JumpImpulse * Vector3.up, ForceMode.Impulse);
@@ -51,13 +49,19 @@ public class PlayerController : MonoBehaviour
 
         _rb.AddForce(_curMovement.DragCoeff * -v_xz);
 
-
-        Plane playerPlane = new Plane(Vector3.up, _rb.position);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float rayDistance;
-        if (playerPlane.Raycast(ray, out rayDistance)) {
-            // _boj.transform.position = ray.GetPoint(rayDistance);
+        if (Input.GetMouseButton(0)) {
+            shoot();
         }
+    }
+
+    void shoot()
+    {
+        var playerPlane = new Plane(Vector3.up, _rb.position);
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        float rayDistance;
+        if (! playerPlane.Raycast(ray, out rayDistance)) return;
+        var aimPos = ray.GetPoint(rayDistance);
+        var aimVec = (aimPos - _rb.position).normalized;
     }
 
     void OnEnterBlood()
@@ -68,6 +72,15 @@ public class PlayerController : MonoBehaviour
     void OnExitBlood()
     {
         _curMovement = _airMovement;
+    }
+
+    void OnCollisionEnter(Collision c)
+    {
+        foreach(var n in c.contacts) {
+            if (n.normal.y > 0.5f) {
+                _rb.velocity = Vector3.zero;
+            }
+        }
     }
 
     void OnCollisionStay(Collision c)
