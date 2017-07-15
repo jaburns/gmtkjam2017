@@ -18,7 +18,11 @@ public class BulletController : MonoBehaviour
 
     void OnCollisionEnter(Collision c)
     {
-        Instantiate(_deathParticles, transform.position, Quaternion.identity);
+        foreach (var o in c.contacts) {
+            o.otherCollider.SendMessage("OnGetShot", SendMessageOptions.DontRequireReceiver);
+        }
+
+        Instantiate(_deathParticles, transform.position, Quaternion.FromToRotation(Vector3.forward, c.contacts[0].normal));
         Destroy(gameObject);
         _pc.NotifyBulletDied();
     }
