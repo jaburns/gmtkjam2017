@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] MovementParams _bloodMovement;
     [SerializeField] MovementParams _airMovement;
     [SerializeField] int _groundTime;
+    [SerializeField] GameObject _bulletPrefab;
 
     MovementParams _curMovement;
     Rigidbody _rb;
@@ -62,6 +63,9 @@ public class PlayerController : MonoBehaviour
         if (! playerPlane.Raycast(ray, out rayDistance)) return;
         var aimPos = ray.GetPoint(rayDistance);
         var aimVec = (aimPos - _rb.position).normalized;
+
+        var bullet = Instantiate(_bulletPrefab, _rb.position, Quaternion.identity) as GameObject;
+        bullet.GetComponent<BulletController>().Init(aimVec);
     }
 
     void OnEnterBlood()
