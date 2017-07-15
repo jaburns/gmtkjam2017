@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43680635, g: 0.48443866, b: 0.5646905, a: 1}
+  m_IndirectSpecularColor: {r: 0.4368063, g: 0.48443902, b: 0.5646909, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -371,6 +371,48 @@ Transform:
   m_Father: {fileID: 1678399905}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &537884296
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4908905648140554, guid: d97826aa9dfde4a098386ef634002b0e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -6.1503386
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908905648140554, guid: d97826aa9dfde4a098386ef634002b0e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.7080631
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908905648140554, guid: d97826aa9dfde4a098386ef634002b0e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.5485568
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908905648140554, guid: d97826aa9dfde4a098386ef634002b0e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908905648140554, guid: d97826aa9dfde4a098386ef634002b0e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908905648140554, guid: d97826aa9dfde4a098386ef634002b0e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908905648140554, guid: d97826aa9dfde4a098386ef634002b0e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908905648140554, guid: d97826aa9dfde4a098386ef634002b0e, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d97826aa9dfde4a098386ef634002b0e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &596633878
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +659,11 @@ Transform:
   m_Father: {fileID: 1678399905}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1343225188 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1193353745317784, guid: d97826aa9dfde4a098386ef634002b0e,
+    type: 2}
+  m_PrefabInternal: {fileID: 537884296}
 --- !u!1 &1345859160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,6 +1153,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114962318554207180, guid: b89f37555c3594ebc98e177547bdfda3,
+        type: 2}
+      propertyPath: _bloodMeter
+      value: 
+      objectReference: {fileID: 1343225188}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b89f37555c3594ebc98e177547bdfda3, type: 2}
   m_IsPrefabParent: 0

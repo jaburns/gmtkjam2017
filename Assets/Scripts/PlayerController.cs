@@ -16,11 +16,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] MovementParams _airMovement;
     [SerializeField] int _groundTime;
     [SerializeField] GameObject _bulletPrefab;
+    [SerializeField] GameObject _bloodMeter;
 
     MovementParams _curMovement;
     Rigidbody _rb;
     int _grounded;
     bool _pressedSpace = false;
+
+    float _personalBlood = 1.0f;
 
     void Start()
     {
@@ -55,6 +58,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        _bloodMeter.transform.localScale += Vector3.up * (_personalBlood - _bloodMeter.transform.localScale.y) / 2.0f;
+    }
+
     void shoot()
     {
         var playerPlane = new Plane(Vector3.up, _rb.position);
@@ -66,6 +74,8 @@ public class PlayerController : MonoBehaviour
 
         var bullet = Instantiate(_bulletPrefab, _rb.position, Quaternion.identity) as GameObject;
         bullet.GetComponent<BulletController>().Init(aimVec);
+
+        _personalBlood -= 0.01f;
     }
 
     void OnEnterBlood()
