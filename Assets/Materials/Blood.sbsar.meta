@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f7f3be5a2bb0743d4b3144ba71853620
-timeCreated: 1500149618
+timeCreated: 1500150538
 licenseType: Pro
 SubstanceImporter:
   serializedVersion: 5
@@ -10,8 +10,8 @@ SubstanceImporter:
     prototypeName: Blood
     shaderName: 
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: _ALPHABLEND_ON _NORMALMAP
-    renderQueue: 3000
+    shaderKeywords: _NORMALMAP
+    renderQueue: -1
     lightmapFlags: 4
     inputs:
     - name: $outputsize
@@ -82,22 +82,22 @@ SubstanceImporter:
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       floats:
-      - _BumpScale: 1.53
+      - _BumpScale: 2
       - _Cutoff: 0.5
       - _DetailNormalMapScale: 1
-      - _DstBlend: 10
+      - _DstBlend: 0
       - _GlossMapScale: 1
       - _Glossiness: 0.5
       - _GlossyReflections: 1
       - _Metallic: 0
-      - _Mode: 2
+      - _Mode: 0
       - _OcclusionStrength: 1
       - _Parallax: 0.02
       - _SmoothnessTextureChannel: 0
       - _SpecularHighlights: 1
-      - _SrcBlend: 5
+      - _SrcBlend: 1
       - _UVSec: 0
-      - _ZWrite: 0
+      - _ZWrite: 1
       colors:
       - _Color: {r: 1, g: 0, b: 0, a: 1}
       - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
