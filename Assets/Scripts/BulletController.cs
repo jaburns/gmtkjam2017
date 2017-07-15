@@ -21,4 +21,6 @@ public class BulletController : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         Destroy(gameObject);
     }
+
+//  void OnCollisionEnter
 }
