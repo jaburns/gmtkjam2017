@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour 
 {
+    public float BloodAmount = 0.01f;
     [SerializeField] float _speed; 
 
     Rigidbody _rb;
+    BloodController _bc;
 
-    public void Init(Vector3 direction)
+    public void Init(BloodController bc, Vector3 direction)
     {
+        _bc = bc;
         _rb = GetComponent<Rigidbody>();
         _rb.velocity = direction * _speed;
-        StartCoroutine(killIt());
     }
 
-    IEnumerator killIt()
+    void OnCollisionEnter(Collision c)
     {
-        yield return new WaitForSeconds(2.0f);
+        _bc.ChangeHeight(BloodAmount);
         Destroy(gameObject);
     }
-
-//  void OnCollisionEnter
 }

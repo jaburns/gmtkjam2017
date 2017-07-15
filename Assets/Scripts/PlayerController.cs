@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int _groundTime;
     [SerializeField] GameObject _bulletPrefab;
     [SerializeField] GameObject _bloodMeter;
+    [SerializeField] float _bloodDrinkSpeed;
 
+    bool _inBlood = false;
+    BloodController _bloodController;
     MovementParams _curMovement;
     Rigidbody _rb;
     int _grounded;
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        _bloodController = FindObjectOfType<BloodController>();
         _rb = GetComponent<Rigidbody>();
         _curMovement = _airMovement;
     }
@@ -54,7 +58,11 @@ public class PlayerController : MonoBehaviour
         _rb.AddForce(_curMovement.DragCoeff * -v_xz);
 
         if (Input.GetMouseButton(0)) {
-            shoot();
+            if (_inBlood) {
+                drink();
+            } else {
+                shoot();
+            }
         }
     }
 
@@ -63,8 +71,20 @@ public class PlayerController : MonoBehaviour
         _bloodMeter.transform.localScale += Vector3.up * (_personalBlood - _bloodMeter.transform.localScale.y) / 2.0f;
     }
 
+    void drink()
+    {
+        if (_personalBlood >= 1.0f) return;
+
+        var oldBlood = _personalBlood;
+        _personalBlood += _bloodDrinkSpeed;
+        if (_personalBlood > 1.0f) _personalBlood = 1.0f;
+        _bloodController.ChangeHeight(oldBlood - _personalBlood);
+    }
+
     void shoot()
     {
+        if (_personalBlood < 0.1f) return;
+
         var playerPlane = new Plane(Vector3.up, _rb.position);
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         float rayDistance;
@@ -73,19 +93,21 @@ public class PlayerController : MonoBehaviour
         var aimVec = (aimPos - _rb.position).normalized;
 
         var bullet = Instantiate(_bulletPrefab, _rb.position, Quaternion.identity) as GameObject;
-        bullet.GetComponent<BulletController>().Init(aimVec);
-
-        _personalBlood -= 0.01f;
+        var bc = bullet.GetComponent<BulletController>();
+        bc.Init(_bloodController, aimVec);
+        _personalBlood -= bc.BloodAmount;
     }
 
     void OnEnterBlood()
     {
         _curMovement = _bloodMovement;
+        _inBlood = true;
     }
 
     void OnExitBlood()
     {
         _curMovement = _airMovement;
+        _inBlood = false;
     }
 
     void OnCollisionEnter(Collision c)
