@@ -6,6 +6,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour 
 {
     [SerializeField] float _speed; 
+    [SerializeField] GameObject _deathParticles; 
 
     PlayerController _pc;
 
@@ -17,6 +18,7 @@ public class BulletController : MonoBehaviour
 
     void OnCollisionEnter(Collision c)
     {
+        Instantiate(_deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
         _pc.NotifyBulletDied();
     }
