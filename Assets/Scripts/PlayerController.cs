@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
     {
         if (PersonalBlood >= 1.0f) return;
         PersonalBlood += _bloodDrinkSpeed;
+        transform.position += Vector3.down * _bloodController.HeightPerBloodAmount * _bloodDrinkSpeed;
         if (PersonalBlood > 1.0f) PersonalBlood = 1.0f;
     }
 

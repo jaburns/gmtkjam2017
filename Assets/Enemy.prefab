@@ -109,6 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f31b362acee41b49bbfe8a70405975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bloodAmount: 2
+  _deathParticles: {fileID: 1192541290951218, guid: a54958311a3f148bf80aa086e4753875,
+    type: 2}
 --- !u!135 &135767961695695176
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BloodController : MonoBehaviour 
 {
-    [SerializeField] float _heightPerBloodAmount = 1.0f;
+    public float HeightPerBloodAmount = 1.0f;
+    public float Lag = 3.0f;
 
     PlayerController _player;
     Rigidbody _rb;
@@ -14,16 +15,22 @@ public class BloodController : MonoBehaviour
     {
         _player = FindObjectOfType<PlayerController>();
         _rb = GetComponent<Rigidbody>();
-        _baseY = _rb.position.y + _heightPerBloodAmount;
+        _baseY = _rb.position.y + HeightPerBloodAmount;
     }
 
     void FixedUpdate()
     {
+        var targetY = _baseY - HeightPerBloodAmount * (_player.PersonalBlood + _player.LivingBulletBlood);
         _rb.MovePosition(new Vector3(
             _rb.position.x, 
-            _baseY - _heightPerBloodAmount * (_player.PersonalBlood + _player.LivingBulletBlood),
+            _rb.position.y + (targetY - _rb.position.y) / Lag,
             _rb.position.z
         ));
+    }
+    
+    public void IncreaseAmbientBloodLevel(float delta)
+    {
+        _baseY += delta;
     }
 }
 

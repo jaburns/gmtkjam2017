@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 199254662233954554}
   - component: {fileID: 114381563595730642}
   m_Layer: 0
-  m_Name: BulletDeathParticles
+  m_Name: EnemyDeathParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192541290951218}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 2.14, y: -0.044003494, z: 0.78731656}
+  m_LocalPosition: {x: 0.40377682, y: 2.8717008, z: -3.4780436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,7 +109,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -90397376
+  randomSeed: -771981072
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -142,7 +142,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSpeed:
       minMaxState: 3
-      scalar: 3
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -160,7 +160,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.03333333
+          value: 0.05
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -232,7 +232,7 @@ ParticleSystem:
       maxColor: {r: 0.6911765, g: 0.015246554, b: 0.015246554, a: 1}
     startSize:
       minMaxState: 3
-      scalar: 0.4
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -250,7 +250,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.25
+          value: 0.4
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -434,7 +434,7 @@ ParticleSystem:
     rotation3D: 0
     gravityModifier:
       minMaxState: 3
-      scalar: 1.5
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -452,7 +452,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.33333334
+          value: 0.20000002
           inSlope: 0
           outSlope: 0
           tangentMode: 0
