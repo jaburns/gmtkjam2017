@@ -10,6 +10,9 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] float _bloodAmount;
     [SerializeField] GameObject _deathParticles;
+    [SerializeField] GameObject _bullet;
+    [SerializeField] float _bulletHeight;
+    [SerializeField] float _shootFreq;
     
     Rigidbody _rb;
     PlayerController _player;
@@ -27,6 +30,12 @@ public class EnemyController : MonoBehaviour
         _rb.AddForce(dxz * MoveForce);
         var v_xz = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
         _rb.AddForce(DragCoeff * -v_xz);
+
+        if (Random.value < _shootFreq) {
+            var bullet = Instantiate(_bullet, _rb.position + Vector3.up * _bulletHeight, Quaternion.identity) as GameObject;
+            var bc = bullet.GetComponent<BulletController>();
+            bc.Init(null, dxz);
+        }
     }
 
     void OnGetShot()

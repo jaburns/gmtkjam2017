@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
@@ -150,6 +151,11 @@ public class PlayerController : MonoBehaviour
         _livingBullets++;
         PersonalBlood -= _bloodPerBullet;
         if (PersonalBlood < 0.0f) PersonalBlood = 0.0f;
+    }
+
+    void OnGetEnemyShot()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void OnEnterBlood()

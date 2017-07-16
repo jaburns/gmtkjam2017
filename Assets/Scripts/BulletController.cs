@@ -7,7 +7,6 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField] float _speed; 
     [SerializeField] GameObject _deathParticles; 
-
     PlayerController _pc;
 
     public void Init(PlayerController pc, Vector3 direction)
@@ -19,11 +18,12 @@ public class BulletController : MonoBehaviour
     void OnCollisionEnter(Collision c)
     {
         foreach (var o in c.contacts) {
-            o.otherCollider.SendMessage("OnGetShot", SendMessageOptions.DontRequireReceiver);
+            o.otherCollider.SendMessage(_pc == null ? "OnGetEnemyShot" : "OnGetShot", SendMessageOptions.DontRequireReceiver);
         }
 
         Instantiate(_deathParticles, transform.position, Quaternion.FromToRotation(Vector3.forward, c.contacts[0].normal));
         Destroy(gameObject);
-        _pc.NotifyBulletDied();
+
+        if (_pc != null) _pc.NotifyBulletDied();
     }
 }
