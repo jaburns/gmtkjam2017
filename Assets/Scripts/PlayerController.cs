@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
     void OnGetEnemyShot()
     {
-    //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void OnEnterBlood()
