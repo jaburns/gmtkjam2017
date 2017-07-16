@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _bloodDrinkSpeed;
     [SerializeField] float _bloodPerBullet;
     [SerializeField] float _bulletHeight;
-
     [SerializeField] GameObject _moveThingA;
     [SerializeField] GameObject _moveThingB;
 
@@ -39,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     Vector3 _aimVec;
     Vector3 _forceVec;
+    Animator _anim;
 
     Collider _curGround = null;
 
@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
         _bloodController = FindObjectOfType<BloodController>();
         _rb = GetComponent<Rigidbody>();
         PersonalBlood = 1.0f;
+
+        _anim = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()
@@ -78,6 +80,10 @@ public class PlayerController : MonoBehaviour
 
         _rb.AddForce(newForceVec);
         if (xxx) _forceVec = newForceVec;
+
+        _anim.SetBool("isWalking", xxx);
+        _anim.SetBool("isGrounded", _grounded > 0);
+        _anim.SetBool("isIdle", !xxx);
 
         var v_xz = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
 
