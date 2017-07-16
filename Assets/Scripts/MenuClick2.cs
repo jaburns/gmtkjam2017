@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuClick : MonoBehaviour {
+public class MenuClick2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

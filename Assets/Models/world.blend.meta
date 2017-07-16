@@ -37,6 +37,7 @@ ModelImporter:
     2300014: Circle_007
     2300016: Circle_008
     2300018: Plane
+    2300020: //RootNode
     3300000: Circle
     3300002: Circle_001
     3300004: Circle_002
@@ -47,6 +48,7 @@ ModelImporter:
     3300014: Circle_007
     3300016: Circle_008
     3300018: Plane
+    3300020: //RootNode
     4300000: Circle_008
     4300002: Circle_002
     4300004: Circle_001
@@ -57,6 +59,7 @@ ModelImporter:
     4300014: Circle_003
     4300016: Circle
     4300018: Plane
+    4300020: Big_Wall
   materials:
     importMaterials: 1
     materialName: 0
