@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject _bullet;
     [SerializeField] float _bulletHeight;
     [SerializeField] float _shootFreq;
+    [SerializeField] float _randomness = 2.0f;
 
     int _dontShootTimer = 0;
     int _shotsLeft = 0;
@@ -32,7 +33,7 @@ public class EnemyController : MonoBehaviour
         var dxz = (_player.transform.position - transform.position).normalized;
 
         dxz.y = 0;
-        _rb.AddForce((dxz + _randWalk) * MoveForce);
+        _rb.AddForce((dxz + _randomness*_randWalk).normalized * MoveForce);
         var v_xz = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
         _rb.AddForce(DragCoeff * -v_xz);
 
