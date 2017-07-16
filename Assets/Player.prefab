@@ -1038,6 +1038,8 @@ MonoBehaviour:
   _bulletHeight: 0.4
   _moveThingA: {fileID: 1401501119886922}
   _moveThingB: {fileID: 1326649003287570}
+  _splorshPrefab: {fileID: 1421793396292172, guid: 064bdd3f608de42478bd3d375e60a901,
+    type: 2}
 --- !u!136 &136209693932608760
 CapsuleCollider:
   m_ObjectHideFlags: 1

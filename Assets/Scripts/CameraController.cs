@@ -35,6 +35,8 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_blood == null) return;
+        
         if (LowLevelShake && _shakeWeight < _lowLevelShake) {
             _shakeWeight = _lowLevelShake;
         }

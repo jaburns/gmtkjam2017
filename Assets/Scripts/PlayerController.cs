@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
     void OnGetEnemyShot()
     {
         Audio.Play("GetHit");
-        Instantiate(_splorshPrefab, transform.position, Quaternion.identity);
+        Instantiate(_splorshPrefab, transform.position, Quaternion.Euler(-90,0,0));
         (new GameObject()).AddComponent<Restarter>();
         Destroy(gameObject);
     }

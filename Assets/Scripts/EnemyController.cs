@@ -30,6 +30,8 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_player == null) return;
+
         var dxz = (_player.transform.position - transform.position).normalized;
 
         dxz.y = 0;
@@ -57,6 +59,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if (_player == null) return; 
         var dxz = (_player.transform.position - transform.position).normalized;
         transform.rotation = Quaternion.Euler(0, 180 + Mathf.Rad2Deg * Mathf.Atan2(dxz.z, -dxz.x), 0);
     }

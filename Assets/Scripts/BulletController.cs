@@ -29,7 +29,7 @@ public class BulletController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_t > 0.0f && Time.time > _t + 3.0f) {
+        if (_t > 0.0f && Time.time > _t + 5.0f) {
             Destroy(gameObject);
         }
     }
