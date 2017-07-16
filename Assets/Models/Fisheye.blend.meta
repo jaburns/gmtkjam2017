@@ -6,7 +6,15 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Sphere_003
     400000: //RootNode
+    400002: Sphere_003
+    2300000: //RootNode
+    2300002: Sphere_003
+    3300000: //RootNode
+    3300002: Sphere_003
+    4300000: Sphere_001
+    4300002: Sphere_003
   materials:
     importMaterials: 1
     materialName: 0

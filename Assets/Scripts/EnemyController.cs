@@ -55,6 +55,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        var dxz = (_player.transform.position - transform.position).normalized;
+        transform.rotation = Quaternion.Euler(0, 180 + Mathf.Rad2Deg * Mathf.Atan2(dxz.z, -dxz.x), 0);
+    }
+
     bool killed = false;
     void OnGetShot()
     {
