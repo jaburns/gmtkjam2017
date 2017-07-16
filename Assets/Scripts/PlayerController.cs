@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     Collider _curGround = null;
 
     public float PersonalBlood { get; private set; }
-    public float LivingBulletBlood { get { return _livingBullets * _bloodPerBullet; } }
+    public float LivingBulletBlood { get { return FindObjectsOfType<BulletController>().Length * _bloodPerBullet; } }
 
     void Start()
     {

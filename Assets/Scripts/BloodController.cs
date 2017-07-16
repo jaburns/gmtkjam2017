@@ -31,6 +31,7 @@ public class BloodController : MonoBehaviour
     public void IncreaseAmbientBloodLevel(float delta)
     {
         _baseY += delta;
+        Debug.Log(_baseY);
     }
 }
 
