@@ -121,22 +121,22 @@ MonoBehaviour:
         neutralWhiteClip: 10
       basic:
         postExposure: 0
-        temperature: 6.5
-        tint: -11.2
+        temperature: -42.8
+        tint: -17.6
         hueShift: 1
-        saturation: 1
-        contrast: 1
+        saturation: 1.416
+        contrast: 0.832
       channelMixer:
-        red: {x: 0.93, y: 0.21, z: -0.09}
-        green: {x: 0.03, y: 0.96, z: 0.29}
-        blue: {x: 0.17, y: -0.09, z: 1.43}
-        currentEditingChannel: 2
+        red: {x: 1.06, y: 0.38, z: -0.24}
+        green: {x: 0.23, y: 0.72, z: 0.18}
+        blue: {x: 0.32, y: -0.09, z: 0.72}
+        currentEditingChannel: 0
       colorWheels:
         mode: 1
         log:
-          slope: {r: 1, g: 0.6915068, b: 0.45815325, a: -0.14105794}
-          power: {r: 1, g: 0.9354132, b: 0.791391, a: -0.0604534}
-          offset: {r: 1, g: 0.96935546, b: 0.5941894, a: 0.020151133}
+          slope: {r: 1, g: 0.6185705, b: 0.481054, a: -0.22046241}
+          power: {r: 1, g: 0.78060454, b: 0.41739714, a: -0.10015564}
+          offset: {r: 0.9347174, g: 1, b: 0.4240942, a: 0.13925783}
         linear:
           lift: {r: 0, g: 0, b: 0, a: 0}
           gamma: {r: 0, g: 0, b: 0, a: 0}
@@ -175,6 +175,12 @@ MonoBehaviour:
               outSlope: 1
               tangentMode: 0
             - serializedVersion: 2
+              time: 0.3678161
+              value: 0.45673078
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 0
+            - serializedVersion: 2
               time: 1
               value: 1
               inSlope: 1
@@ -182,7 +188,7 @@ MonoBehaviour:
               tangentMode: 0
             m_PreInfinity: 2
             m_PostInfinity: 2
-            m_RotationOrder: 4
+            m_RotationOrder: 0
           m_Loop: 0
           m_ZeroValue: 0
           m_Range: 1
@@ -272,7 +278,7 @@ MonoBehaviour:
           m_Range: 1
         e_CurrentEditingCurve: 0
         e_CurveY: 1
-        e_CurveR: 0
+        e_CurveR: 1
         e_CurveG: 0
         e_CurveB: 0
   userLut:
@@ -293,13 +299,13 @@ MonoBehaviour:
       size: 1
       luminanceContribution: 0.8
   vignette:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.091
-      smoothness: 0.2
+      intensity: 0.45
+      smoothness: 0.325
       roundness: 1
       mask: {fileID: 0}
       opacity: 1

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 980537adb4f8d41309edfde612cc6d25
-timeCreated: 1500246903
+guid: cb5c20ef4e15c4f839490e73f9dd5b2c
+timeCreated: 1500246921
 licenseType: Pro
 SubstanceImporter:
   serializedVersion: 5
@@ -30,9 +30,9 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: outputcolor
       value:
-        scalar[0]: 0.625
-        scalar[1]: 0.625
-        scalar[2]: 0.625
+        scalar[0]: 0.102941155
+        scalar[1]: 0.080233544
+        scalar[2]: 0.080233544
         scalar[3]: 1
         texture: {instanceID: 0}
     materialInformation:

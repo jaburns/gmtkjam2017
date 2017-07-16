@@ -381,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveForce: 5
   DragCoeff: 10
-  health: 1
+  health: 12
   _bloodAmount: 1
   _deathParticles: {fileID: 1421793396292172, guid: 064bdd3f608de42478bd3d375e60a901,
     type: 2}

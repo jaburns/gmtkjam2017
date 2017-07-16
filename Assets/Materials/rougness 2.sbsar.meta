@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 980537adb4f8d41309edfde612cc6d25
-timeCreated: 1500246903
+guid: 90d97e1dd38f543ffb5e94ab6589e23a
+timeCreated: 1500241808
 licenseType: Pro
 SubstanceImporter:
   serializedVersion: 5
@@ -14,26 +14,12 @@ SubstanceImporter:
     renderQueue: -1
     lightmapFlags: 4
     inputs:
-    - name: $outputsize
-      value:
-        scalar[0]: 8
-        scalar[1]: 8
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
     - name: $randomseed
       value:
         scalar[0]: 0
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
-        texture: {instanceID: 0}
-    - name: outputcolor
-      value:
-        scalar[0]: 0.625
-        scalar[1]: 0.625
-        scalar[2]: 0.625
-        scalar[3]: 1
         texture: {instanceID: 0}
     materialInformation:
       serializedVersion: 5
@@ -46,7 +32,7 @@ SubstanceImporter:
       serializedVersion: 3
       texEnvs:
       - _BumpMap:
-          texture: {instanceID: 0}
+          texture: {fileID: -811447780, guid: f7f3be5a2bb0743d4b3144ba71853620, type: 3}
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       - _DetailAlbedoMap:
@@ -82,7 +68,7 @@ SubstanceImporter:
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       floats:
-      - _BumpScale: 1
+      - _BumpScale: 0
       - _Cutoff: 0.5
       - _DetailNormalMapScale: 1
       - _DstBlend: 0
@@ -92,14 +78,14 @@ SubstanceImporter:
       - _Metallic: 0
       - _Mode: 0
       - _OcclusionStrength: 1
-      - _Parallax: 0.02
+      - _Parallax: 0.0201
       - _SmoothnessTextureChannel: 0
       - _SpecularHighlights: 1
       - _SrcBlend: 1
       - _UVSec: 0
       - _ZWrite: 1
       colors:
-      - _Color: {r: 1, g: 1, b: 1, a: 1}
+      - _Color: {r: 0.28676468, g: 0.28254756, b: 0.28254756, a: 1}
       - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     textureParameters:
     - name: New_Graph_basecolor
@@ -124,8 +110,8 @@ SubstanceImporter:
       wrapMode: 0
     textureAssignments:
     - shaderProp: _BumpMap
-      material: {instanceID: 0}
-      baseUID: 679316570
+      material: {fileID: 1919204493, guid: f7f3be5a2bb0743d4b3144ba71853620, type: 3}
+      baseUID: 2936103810
     - shaderProp: _MainTex
       material: {instanceID: 0}
       baseUID: 679316568
