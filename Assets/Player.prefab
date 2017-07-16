@@ -1032,7 +1032,7 @@ MonoBehaviour:
   _bloodMeter: {fileID: 0}
   _bloodDrinkSpeed: 0.01
   _bloodPerBullet: 0.01
-  _bulletHeight: 0.2
+  _bulletHeight: 0.4
   _moveThingA: {fileID: 1401501119886922}
   _moveThingB: {fileID: 1326649003287570}
 --- !u!136 &136209693932608760
@@ -1044,10 +1044,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.76
+  m_Radius: 0.886715
+  m_Height: 3.0923965
   m_Direction: 1
-  m_Center: {x: 0, y: 1.24, z: 0}
+  m_Center: {x: 0, y: 1.4061983, z: -0.386715}
 --- !u!137 &137186105912194266
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
