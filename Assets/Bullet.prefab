@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
-  _deathParticles: {fileID: 1839045844209326, guid: 00bf79d19094d4eb1ae8726e47a8a4eb,
+  _deathParticles: {fileID: 1839045844209326, guid: 88fb513be8f2b43c6a799378d0814a83,
     type: 2}
 --- !u!135 &135286646752142098
 SphereCollider:
