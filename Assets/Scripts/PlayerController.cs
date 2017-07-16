@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _bulletHeight;
     [SerializeField] GameObject _moveThingA;
     [SerializeField] GameObject _moveThingB;
+    [SerializeField] GameObject _splorshPrefab;
 
     bool _inBlood = false;
     bool _inBloodMode = false;
@@ -187,7 +188,9 @@ public class PlayerController : MonoBehaviour
     void OnGetEnemyShot()
     {
         Audio.Play("GetHit");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Instantiate(_splorshPrefab, transform.position, Quaternion.identity);
+        (new GameObject()).AddComponent<Restarter>();
+        Destroy(gameObject);
     }
 
     void OnEnterBlood()
