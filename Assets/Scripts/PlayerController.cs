@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     bool _clickShooting = false;
     bool _clickDone = false;
 
+    Collider _curGround = null;
+
     public float PersonalBlood { get; private set; }
     public float LivingBulletBlood { get { return _livingBullets * _bloodPerBullet; } }
 
@@ -54,13 +56,15 @@ public class PlayerController : MonoBehaviour
                 _grounded = 0;
             }
             _grounded--;
+        } else {
+            _curGround = null;
         }
         _pressedSpace = Input.GetKey(KeyCode.Space);
 
-        if (Input.GetKey(KeyCode.W)) _rb.AddForce(_curMovement.MoveForce * Vector3.forward);
-        if (Input.GetKey(KeyCode.S)) _rb.AddForce(_curMovement.MoveForce * Vector3.back);
-        if (Input.GetKey(KeyCode.A)) _rb.AddForce(_curMovement.MoveForce * Vector3.left);
-        if (Input.GetKey(KeyCode.D)) _rb.AddForce(_curMovement.MoveForce * Vector3.right);
+        if (Input.GetKey(KeyCode.W)) { sendWalkMessage(); _rb.AddForce(_curMovement.MoveForce * Vector3.forward); }
+        if (Input.GetKey(KeyCode.S)) { sendWalkMessage(); _rb.AddForce(_curMovement.MoveForce * Vector3.back); }
+        if (Input.GetKey(KeyCode.A)) { sendWalkMessage(); _rb.AddForce(_curMovement.MoveForce * Vector3.left); } 
+        if (Input.GetKey(KeyCode.D)) { sendWalkMessage(); _rb.AddForce(_curMovement.MoveForce * Vector3.right); }
 
         var v_xz = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
 
@@ -89,6 +93,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void sendWalkMessage()
+    {
+        if (_curGround != null) {
+            _curGround.SendMessage("OnPlayerWalk", SendMessageOptions.DontRequireReceiver);
+        }
+    }
+
     void Update()
     {
         _bloodMeter.transform.localScale += Vector3.up * (PersonalBlood - _bloodMeter.transform.localScale.y) / 2.0f;
@@ -109,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
     void shoot()
     {
-        if (PersonalBlood < 0.1f) return;
+        if (PersonalBlood < 0.001f) return;
 
         var playerPlane = new Plane(Vector3.up, _rb.position);
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -123,6 +134,7 @@ public class PlayerController : MonoBehaviour
         bc.Init(this, aimVec);
         _livingBullets++;
         PersonalBlood -= _bloodPerBullet;
+        if (PersonalBlood < 0.0f) PersonalBlood = 0.0f;
     }
 
     void OnEnterBlood()
@@ -154,6 +166,7 @@ public class PlayerController : MonoBehaviour
     {
         foreach(var n in c.contacts) {
             if (n.normal.y > 0.5f) {
+                _curGround = n.otherCollider;
                 _grounded = _groundTime;
                 _inBloodMode = _inBlood;
             }

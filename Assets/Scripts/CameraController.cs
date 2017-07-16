@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     Rigidbody _rb;
     float _bloodDeltaY;
     float _baseX;
+    float _baseZ;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class CameraController : MonoBehaviour
         _blood = FindObjectOfType<PlayerController>();
         _bloodDeltaY = transform.position.y - _blood.transform.position.y;
         _baseX = transform.position.x;
+        _baseZ = transform.position.z;
     }
 
     void FixedUpdate()
@@ -26,7 +28,7 @@ public class CameraController : MonoBehaviour
         _rb.MovePosition(new Vector3(
             _baseX + _rockRadius * Mathf.Sin(_rockFrequency * Time.time),
             _rb.position.y + (_blood.transform.position.y + _bloodDeltaY - _rb.position.y) / _lag,
-            _rb.position.z
+            _baseZ + _rockRadius * (-1f + Mathf.Cos(_rockFrequency * Time.time))
         ));
     }
 }
