@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float _bulletHeight;
     [SerializeField] float _shootFreq;
     [SerializeField] float _randomness = 2.0f;
+    [SerializeField] bool _boss = false;
 
     int _dontShootTimer = 0;
     int _shotsLeft = 0;
@@ -78,6 +79,9 @@ public class EnemyController : MonoBehaviour
             FindObjectOfType<CameraController>().Shake();
             Audio.Play("Death");
             Destroy(gameObject);
+            if (_boss) {
+                FindObjectOfType<Fader>().FadeToBlack();
+            }
         }
     }
 }
