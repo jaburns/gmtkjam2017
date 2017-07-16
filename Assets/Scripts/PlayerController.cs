@@ -62,6 +62,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetKey(KeyCode.Escape)) {
+            Application.Quit();
+        }
         var _curMovement = _inBloodMode ? _bloodMovement : _airMovement;
 
         if(_rb.IsSleeping()) _rb.WakeUp();
