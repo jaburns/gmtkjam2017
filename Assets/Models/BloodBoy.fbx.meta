@@ -1,0 +1,448 @@
+fileFormatVersion: 2
+guid: 15089a5465e2c4563a563b6e17ec134f
+timeCreated: 1500164335
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm.Low.L
+    100002: Arm.Up.L
+    100004: arm.up.R
+    100006: //RootNode
+    100008: Bone.001
+    100010: Crotcho
+    100012: foot.L
+    100014: foot.L_end
+    100016: Foot.R
+    100018: Foot.R_end
+    100020: Gun
+    100022: Gun_end
+    100024: hand.L
+    100026: hand.L_end
+    100028: head
+    100030: head_end
+    100032: Leg.L
+    100034: leg.Low.L
+    100036: Leg.Low.R
+    100038: LEG.R
+    100040: Legs
+    100042: Legs.Armature
+    100044: Torso
+    100046: torso
+    100048: Torso.Armature
+    400000: Arm.Low.L
+    400002: Arm.Up.L
+    400004: arm.up.R
+    400006: //RootNode
+    400008: Bone.001
+    400010: Crotcho
+    400012: foot.L
+    400014: foot.L_end
+    400016: Foot.R
+    400018: Foot.R_end
+    400020: Gun
+    400022: Gun_end
+    400024: hand.L
+    400026: hand.L_end
+    400028: head
+    400030: head_end
+    400032: Leg.L
+    400034: leg.Low.L
+    400036: Leg.Low.R
+    400038: LEG.R
+    400040: Legs
+    400042: Legs.Armature
+    400044: Torso
+    400046: torso
+    400048: Torso.Armature
+    4300000: Torso
+    4300002: Legs
+    7400000: Jump
+    7400002: Legs.Armature|Idle
+    7400004: Legs.Armature|Jump
+    7400006: Legs.Armature|Run
+    9500000: //RootNode
+    13700000: Legs
+    13700002: Torso
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Jump
+      takeName: Jump
+      firstFrame: 0
+      lastFrame: 36
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Legs
+        weight: 1
+      - path: Legs.Armature
+        weight: 1
+      - path: Legs.Armature/Crotcho
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L/foot.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L/foot.L/foot.L_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R/Foot.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R/Foot.R/Foot.R_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L/hand.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L/hand.L/hand.L_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R/Gun
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R/Gun/Gun_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001/head
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001/head/head_end
+        weight: 1
+      - path: Torso
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Legs.Armature|Idle
+      takeName: Legs.Armature|Idle
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Legs
+        weight: 1
+      - path: Legs.Armature
+        weight: 1
+      - path: Legs.Armature/Crotcho
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L/foot.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L/foot.L/foot.L_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R/Foot.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R/Foot.R/Foot.R_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L/hand.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L/hand.L/hand.L_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R/Gun
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R/Gun/Gun_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001/head
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001/head/head_end
+        weight: 1
+      - path: Torso
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Legs.Armature|Jump
+      takeName: Legs.Armature|Jump
+      firstFrame: 0
+      lastFrame: 36
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Legs
+        weight: 1
+      - path: Legs.Armature
+        weight: 1
+      - path: Legs.Armature/Crotcho
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L/foot.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L/foot.L/foot.L_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R/Foot.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R/Foot.R/Foot.R_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L/hand.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L/hand.L/hand.L_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R/Gun
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R/Gun/Gun_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001/head
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001/head/head_end
+        weight: 1
+      - path: Torso
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Legs.Armature|Run
+      takeName: Legs.Armature|Run
+      firstFrame: 0
+      lastFrame: 33
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Legs
+        weight: 1
+      - path: Legs.Armature
+        weight: 1
+      - path: Legs.Armature/Crotcho
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L/foot.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Leg.L/leg.Low.L/foot.L/foot.L_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R/Foot.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/LEG.R/Leg.Low.R/Foot.R/Foot.R_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L/hand.L
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Arm.Up.L/Arm.Low.L/hand.L/hand.L_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R/Gun
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/arm.up.R/Gun/Gun_end
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001/head
+        weight: 1
+      - path: Legs.Armature/Crotcho/Torso.Armature/torso/Bone.001/head/head_end
+        weight: 1
+      - path: Torso
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
