@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 114181192124825260}
   - component: {fileID: 135246593569020122}
   m_Layer: 11
-  m_Name: Enemy
+  m_Name: Enemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728661544500496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.44, y: 3.7, z: 1.42}
+  m_LocalPosition: {x: -3.6911101, y: 4.76, z: -3.37}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4963190737972336}
@@ -176,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1591298773424922}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.08, z: 0}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children:
   - {fileID: 4771083426538924}
@@ -381,13 +381,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveForce: 5
   DragCoeff: 10
-  health: 20
+  health: 1
   _bloodAmount: 1
   _deathParticles: {fileID: 1421793396292172, guid: 064bdd3f608de42478bd3d375e60a901,
     type: 2}
   _bullet: {fileID: 1979067622313920, guid: 32e2c919cefbb42e8bc4a17175f38923, type: 2}
   _bulletHeight: 0.1
-  _shootFreq: 0.02
+  _shootFreq: 0.01
   _randomness: 2
 --- !u!114 &114605141092968926
 MonoBehaviour:
@@ -410,8 +410,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.7273023
+  m_Center: {x: 0, y: 0.22730231, z: 0}
 --- !u!135 &135895942708484800
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -1,26 +1,19 @@
 fileFormatVersion: 2
-guid: f7f3be5a2bb0743d4b3144ba71853620
-timeCreated: 1500231826
+guid: eae7cc25105884bdc96e5e2e5e644919
+timeCreated: 1500241593
 licenseType: Pro
 SubstanceImporter:
   serializedVersion: 5
   materialInstances:
   - serializedVersion: 16
-    name: Blood
-    prototypeName: Blood
+    name: New_Graph
+    prototypeName: New_Graph
     shaderName: 
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: _NORMALMAP
+    shaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
     renderQueue: -1
     lightmapFlags: 4
     inputs:
-    - name: $outputsize
-      value:
-        scalar[0]: 8
-        scalar[1]: 8
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
     - name: $randomseed
       value:
         scalar[0]: 0
@@ -28,17 +21,10 @@ SubstanceImporter:
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
-    - name: offset
-      value:
-        scalar[0]: -0.224
-        scalar[1]: -0.5
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 3, y: 3}
+      scale: {x: 1, y: 1}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 42
@@ -47,7 +33,7 @@ SubstanceImporter:
       texEnvs:
       - _BumpMap:
           texture: {instanceID: 0}
-          scale: {x: 3, y: 3}
+          scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       - _DetailAlbedoMap:
           texture: {instanceID: 0}
@@ -63,11 +49,11 @@ SubstanceImporter:
           offset: {x: 0, y: 0}
       - _EmissionMap:
           texture: {instanceID: 0}
-          scale: {x: 3, y: 3}
+          scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       - _MainTex:
           texture: {instanceID: 0}
-          scale: {x: 3, y: 3}
+          scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       - _MetallicGlossMap:
           texture: {instanceID: 0}
@@ -82,12 +68,12 @@ SubstanceImporter:
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       floats:
-      - _BumpScale: 2
+      - _BumpScale: 1
       - _Cutoff: 0.5
       - _DetailNormalMapScale: 1
       - _DstBlend: 0
       - _GlossMapScale: 1
-      - _Glossiness: 0.849
+      - _Glossiness: 0.5
       - _GlossyReflections: 1
       - _Metallic: 0
       - _Mode: 0
@@ -99,15 +85,25 @@ SubstanceImporter:
       - _UVSec: 0
       - _ZWrite: 1
       colors:
-      - _Color: {r: 0.6911765, g: 0.010090168, b: 0, a: 1}
+      - _Color: {r: 0.9558824, g: 0.24599914, b: 0.24599914, a: 1}
       - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     textureParameters:
-    - name: Blood_basecolor
+    - name: New_Graph_basecolor
       alphaSource: 6
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: Blood_normal
+    - name: New_Graph_normal
+      alphaSource: 0
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    - name: New_Graph_metallic
+      alphaSource: 7
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    - name: New_Graph_height
       alphaSource: 0
       filterMode: 1
       aniso: 1
@@ -115,10 +111,16 @@ SubstanceImporter:
     textureAssignments:
     - shaderProp: _BumpMap
       material: {instanceID: 0}
-      baseUID: 2936103810
+      baseUID: 679316570
     - shaderProp: _MainTex
       material: {instanceID: 0}
-      baseUID: 2936103808
+      baseUID: 679316568
+    - shaderProp: _MetallicGlossMap
+      material: {instanceID: 0}
+      baseUID: 679316574
+    - shaderProp: _ParallaxMap
+      material: {instanceID: 0}
+      baseUID: 739419823
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
