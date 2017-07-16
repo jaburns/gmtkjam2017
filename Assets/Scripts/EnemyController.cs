@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
         health -= 1.0f;
         if (health < 0.0f) {
             killed = true;
-            Instantiate(_deathParticles, transform.position, Quaternion.identity);
+			Instantiate(_deathParticles, transform.position, Quaternion.Euler(-90,0,0));
             FindObjectOfType<BloodController>().IncreaseAmbientBloodLevel(_bloodAmount);
             FindObjectOfType<CameraController>().Shake();
             Destroy(gameObject);

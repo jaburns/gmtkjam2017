@@ -154,14 +154,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveForce: 5
   DragCoeff: 10
-  health: 20
+  health: 1
   _bloodAmount: 1
-  _deathParticles: {fileID: 1192541290951218, guid: a54958311a3f148bf80aa086e4753875,
+  _deathParticles: {fileID: 1421793396292172, guid: 064bdd3f608de42478bd3d375e60a901,
     type: 2}
   _bullet: {fileID: 1979067622313920, guid: 32e2c919cefbb42e8bc4a17175f38923, type: 2}
   _bulletHeight: 0.1
   _shootFreq: 0.02
   _randomness: 2
+<<<<<<< Updated upstream
 --- !u!114 &114605141092968926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,3 +186,5 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> Stashed changes

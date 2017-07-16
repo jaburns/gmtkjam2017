@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f7f3be5a2bb0743d4b3144ba71853620
-timeCreated: 1500173918
+timeCreated: 1500185097
 licenseType: Pro
 SubstanceImporter:
   serializedVersion: 5
@@ -10,7 +10,7 @@ SubstanceImporter:
     prototypeName: Blood
     shaderName: 
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: _NORMALMAP
+    shaderKeywords: 
     renderQueue: -1
     lightmapFlags: 4
     inputs:
@@ -87,7 +87,7 @@ SubstanceImporter:
       - _DetailNormalMapScale: 1
       - _DstBlend: 0
       - _GlossMapScale: 1
-      - _Glossiness: 0.5
+      - _Glossiness: 0.849
       - _GlossyReflections: 1
       - _Metallic: 0
       - _Mode: 0
