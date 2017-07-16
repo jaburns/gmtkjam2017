@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButton(0)) {
             if (!_clickDrinking && !_clickShooting) {
-                if (_inBloodMode) _clickDrinking = true;
+                if (_inBlood) _clickDrinking = true;
                 else _clickShooting = true;
             }
         } else {
@@ -103,10 +103,10 @@ public class PlayerController : MonoBehaviour
         if (!_clickDone) {
             if (_clickDrinking) {
                 if (_inBlood) drink();
-                else if (!_inBloodMode) _clickDone = true;
+                else if (!_inBlood) _clickDone = true;
             }
             else if (_clickShooting) {
-                if (!_inBloodMode) shoot();
+                if (!_inBlood) shoot();
                 else _clickDone = true;
             }
         }
@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
 
     void OnGetEnemyShot()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void OnEnterBlood()

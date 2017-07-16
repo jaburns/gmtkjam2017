@@ -13,9 +13,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject _bullet;
     [SerializeField] float _bulletHeight;
     [SerializeField] float _shootFreq;
+
+    int _dontShootTimer = 0;
+    int _shotsLeft = 0;
     
     Rigidbody _rb;
     PlayerController _player;
+    Vector3 _randWalk;
 
     void Start()
     {
@@ -25,16 +29,28 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        var dxz = (_player.transform.position - transform.position);
+        var dxz = (_player.transform.position - transform.position).normalized;
+
         dxz.y = 0;
-        _rb.AddForce(dxz * MoveForce);
+        _rb.AddForce((dxz + _randWalk) * MoveForce);
         var v_xz = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
         _rb.AddForce(DragCoeff * -v_xz);
 
-        if (Random.value < _shootFreq) {
+        if (_dontShootTimer > 0) {
+            _dontShootTimer--;
+        } else if (Random.value < _shootFreq) {
+            _shotsLeft = 3;
+            _randWalk = (new Vector3(Random.value - 0.5f, 0.0f, Random.value - 0.5f)).normalized;
+        }
+
+        if (_shotsLeft > 0) {
+            _shotsLeft--;
             var bullet = Instantiate(_bullet, _rb.position + Vector3.up * _bulletHeight, Quaternion.identity) as GameObject;
             var bc = bullet.GetComponent<BulletController>();
             bc.Init(null, dxz);
+            if (_shotsLeft <= 0) {
+                _dontShootTimer = 60;
+            }
         }
     }
 
