@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     bool _clickDrinking = false;
     bool _clickShooting = false;
     bool _clickDone = false;
+    bool _playLoopShoot = false;
+    bool _playLoopDrink = false;
 
     Vector3 _aimVec;
     Vector3 _forceVec;
@@ -68,6 +70,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) && !_pressedSpace) {
                 _rb.AddForce(_curMovement.JumpImpulse * Vector3.up, ForceMode.Impulse);
                 _grounded = 0;
+                Audio.Play("Jump");
             }
             _grounded--;
             _splash.SetActive(_inBloodMode);
@@ -108,6 +111,9 @@ public class PlayerController : MonoBehaviour
 
         _cam.LowLevelShake = false;
 
+        _playLoopShoot = false;
+        _playLoopDrink = false;
+
         if (!_clickDone) {
             if (_clickDrinking) {
                 if (_inBlood) drink();
@@ -118,6 +124,9 @@ public class PlayerController : MonoBehaviour
                 else _clickDone = true;
             }
         }
+
+        Audio.SetLoopPlaying("ShootBlood", _playLoopShoot);
+        Audio.SetLoopPlaying("DrinkBlood", _playLoopDrink);
     }
 
     void sendWalkMessage()
@@ -146,6 +155,7 @@ public class PlayerController : MonoBehaviour
     void drink()
     {
         if (PersonalBlood >= 1.0f) return;
+        _playLoopDrink = true;
         PersonalBlood += _bloodDrinkSpeed;
         transform.position += Vector3.down * _bloodController.HeightPerBloodAmount * _bloodDrinkSpeed;
         if (PersonalBlood > 1.0f) PersonalBlood = 1.0f;
@@ -161,6 +171,7 @@ public class PlayerController : MonoBehaviour
         if (PersonalBlood < 0.001f) return;
 
         _cam.LowLevelShake = true;
+        _playLoopShoot = true;
 
         var bullet = Instantiate(_bulletPrefab, _rb.position + Vector3.up * _bulletHeight, Quaternion.identity) as GameObject;
         var bc = bullet.GetComponent<BulletController>();
@@ -172,6 +183,7 @@ public class PlayerController : MonoBehaviour
 
     void OnGetEnemyShot()
     {
+        Audio.Play("GetHit");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

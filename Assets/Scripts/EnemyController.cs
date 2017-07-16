@@ -65,6 +65,7 @@ public class EnemyController : MonoBehaviour
 			Instantiate(_deathParticles, transform.position, Quaternion.Euler(-90,0,0));
             FindObjectOfType<BloodController>().IncreaseAmbientBloodLevel(_bloodAmount);
             FindObjectOfType<CameraController>().Shake();
+            Audio.Play("Death");
             Destroy(gameObject);
         }
     }
