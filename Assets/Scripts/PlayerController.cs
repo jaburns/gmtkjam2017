@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     Animator _anim;
 
     Collider _curGround = null;
+    GameObject _splash;
 
     public float PersonalBlood { get; private set; }
     public float LivingBulletBlood { get { return FindObjectsOfType<HeroBullet>().Length * _bloodPerBullet; } }
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         PersonalBlood = 1.0f;
 
+        _splash = transform.Find("SplashingAround").gameObject;
         _anim = GetComponentInChildren<Animator>();
     }
 
@@ -66,8 +68,10 @@ public class PlayerController : MonoBehaviour
                 _grounded = 0;
             }
             _grounded--;
+            _splash.SetActive(_inBloodMode);
         } else {
             _curGround = null;
+            _splash.SetActive(false);
         }
         _pressedSpace = Input.GetKey(KeyCode.Space);
 

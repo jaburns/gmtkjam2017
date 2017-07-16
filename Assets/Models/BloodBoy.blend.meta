@@ -25,6 +25,7 @@ ModelImporter:
     100034: Torso
     100036: torso
     100038: Torso_Armature
+    100040: Cube
     400000: //RootNode
     400002: Arm_Low_L
     400004: Arm_Up_L
@@ -45,12 +46,16 @@ ModelImporter:
     400034: Torso
     400036: torso
     400038: Torso_Armature
+    400040: Cube
     2300000: Legs
     2300002: Torso
+    2300004: Cube
     3300000: Legs
     3300002: Torso
+    3300004: Cube
     4300000: Torso
     4300002: Legs
+    4300004: Cube
   materials:
     importMaterials: 1
     materialName: 0
