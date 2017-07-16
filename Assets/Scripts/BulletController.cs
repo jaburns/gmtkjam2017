@@ -7,14 +7,24 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField] float _speed; 
     [SerializeField] GameObject _deathParticles; 
+    [SerializeField] float spread; 
+    [SerializeField] float scaleSpread;
     PlayerController _pc;
     float _t = -1f;
 
     public void Init(PlayerController pc, Vector3 direction)
     {
+        var randy = UnityEngine.Random.onUnitSphere;
+        randy.y = 0;
+        randy = randy.normalized;
+        direction = direction.normalized;
+        direction += randy * spread;
+
         _pc = pc;
         _t = Time.time;
         GetComponent<Rigidbody>().velocity = direction * _speed;
+
+        transform.localScale *= UnityEngine.Random.value * scaleSpread + (1f - scaleSpread);
     }
 
     void FixedUpdate()

@@ -112,6 +112,8 @@ MonoBehaviour:
   _speed: 2
   _deathParticles: {fileID: 1839045844209326, guid: 00bf79d19094d4eb1ae8726e47a8a4eb,
     type: 2}
+  spread: 0.2
+  scaleSpread: 0.2
 --- !u!135 &135286646752142098
 SphereCollider:
   m_ObjectHideFlags: 1
