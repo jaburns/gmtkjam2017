@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour 
 {
     [Serializable]
-    struct MovementParams {
+    class MovementParams {
         public float MoveForce;
         public float DragCoeff;
         public float JumpImpulse;
@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _bloodPerBullet;
 
     bool _inBlood = false;
+    bool _inBloodMode = false;
     BloodController _bloodController;
-    MovementParams _curMovement;
     Rigidbody _rb;
     int _grounded;
     int _livingBullets = 0;
@@ -39,12 +39,13 @@ public class PlayerController : MonoBehaviour
     {
         _bloodController = FindObjectOfType<BloodController>();
         _rb = GetComponent<Rigidbody>();
-        _curMovement = _airMovement;
         PersonalBlood = 1.0f;
     }
 
     void FixedUpdate()
     {
+        var _curMovement = _inBloodMode ? _bloodMovement : _airMovement;
+
         if(_rb.IsSleeping()) _rb.WakeUp();
 
         if (_grounded > 0) {
@@ -67,8 +68,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButton(0)) {
             if (!_clickDrinking && !_clickShooting) {
-                if (_inBlood) _clickDrinking = true;
-                else          _clickShooting = true;
+                if (_inBloodMode) _clickDrinking = true;
+                else _clickShooting = true;
             }
         } else {
             _clickDone = false;
@@ -79,10 +80,10 @@ public class PlayerController : MonoBehaviour
         if (!_clickDone) {
             if (_clickDrinking) {
                 if (_inBlood) drink();
-                else _clickDone = true;
+                else if (!_inBloodMode) _clickDone = true;
             }
             else if (_clickShooting) {
-                if (!_inBlood) shoot();
+                if (!_inBloodMode) shoot();
                 else _clickDone = true;
             }
         }
@@ -126,13 +127,17 @@ public class PlayerController : MonoBehaviour
 
     void OnEnterBlood()
     {
-        _curMovement = _bloodMovement;
         _inBlood = true;
     }
 
     void OnExitBlood()
     {
-        _curMovement = _airMovement;
+        StartCoroutine(bloodFalseLater());
+    }
+
+    IEnumerator bloodFalseLater()
+    {
+        yield return new WaitForEndOfFrame();
         _inBlood = false;
     }
 
@@ -150,6 +155,7 @@ public class PlayerController : MonoBehaviour
         foreach(var n in c.contacts) {
             if (n.normal.y > 0.5f) {
                 _grounded = _groundTime;
+                _inBloodMode = _inBlood;
             }
         }
     }
