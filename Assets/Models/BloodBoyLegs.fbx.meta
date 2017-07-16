@@ -34,6 +34,7 @@ ModelImporter:
     7400002: Legs.Armature|Idle
     7400004: Legs.Armature|Jump
     7400006: Legs.Armature|Run
+    7400008: Legs.Armature|Run (1)
     9500000: //RootNode
     13700000: Legs
   materials:
@@ -70,7 +71,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -112,18 +113,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Legs.Armature|Idle
-      takeName: Legs.Armature|Idle
+      name: Legs.Armature|Run (1)
+      takeName: Legs.Armature|Run
       firstFrame: 0
-      lastFrame: 59
+      lastFrame: 33
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0

@@ -130,8 +130,8 @@ public class PlayerController : MonoBehaviour
         _aimVec.y = 0;
 
         _bloodMeter.transform.localScale += Vector3.up * (PersonalBlood - _bloodMeter.transform.localScale.y) / 2.0f;
-        _moveThingB.transform.rotation = Quaternion.Euler(0.0f, 270.0f + Mathf.Rad2Deg * Mathf.Atan2(-_aimVec.z, _aimVec.x), 0.0f);
-        _moveThingA.transform.rotation = Quaternion.Euler(0.0f, 90.0f + Mathf.Rad2Deg * Mathf.Atan2(-_forceVec.z, _forceVec.x), 0.0f);
+        _moveThingB.transform.rotation = Quaternion.Euler(-90.0f, -270.0f + Mathf.Rad2Deg * Mathf.Atan2(-_aimVec.z, _aimVec.x), 0.0f);
+        _moveThingA.transform.rotation = Quaternion.Euler(0.0f, -90.0f + Mathf.Rad2Deg * Mathf.Atan2(-_forceVec.z, _forceVec.x), 0.0f);
     }
 
     void drink()
