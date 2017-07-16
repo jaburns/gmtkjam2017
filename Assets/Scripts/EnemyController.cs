@@ -31,10 +31,10 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        var ndifs = _player.transform.position - transform.position;
-
-        if (Mathf.Abs(ndifs.y) > 5.0f) return;
         if (_player == null) return;
+
+        var ndifs = _player.transform.position - transform.position;
+        if (Mathf.Abs(ndifs.y) > 5.0f) return;
 
         var dxz = ndifs.normalized;
         dxz.y = 0;
@@ -80,6 +80,7 @@ public class EnemyController : MonoBehaviour
             Audio.Play("Death");
             Destroy(gameObject);
             if (_boss) {
+                PlayerController.INVULN = true;
                 FindObjectOfType<Fader>().FadeToBlack();
             }
         }

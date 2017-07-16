@@ -173,5 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2672aa949644efeb79e94e6abbb0a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainColor: {r: 0.875, g: 0.038602926, b: 0.038602926, a: 0}
+  _mainColor: {r: 0.875, g: 0.038602926, b: 0.038602926, a: 1}
   fadeRate: 0.9
+  _fadeToBlackColor: {r: 0, g: 0, b: 0, a: 1}
+  _fadeToBlackRate: 0.01

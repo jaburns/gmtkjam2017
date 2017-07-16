@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
         public float JumpImpulse;
     }
 
+    public static bool INVULN = false;
+
     [SerializeField] MovementParams _bloodMovement;
     [SerializeField] MovementParams _airMovement;
     [SerializeField] int _groundTime;
@@ -187,6 +189,8 @@ public class PlayerController : MonoBehaviour
 
     void OnGetEnemyShot()
     {
+        if (INVULN) return;
+
         Audio.Play("GetHit");
         Instantiate(_splorshPrefab, transform.position, Quaternion.Euler(-90,0,0));
         (new GameObject()).AddComponent<Restarter>();
