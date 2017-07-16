@@ -6,7 +6,51 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Arm_Low_L
+    100004: Arm_Up_L
+    100006: arm_up_R
+    100008: Bone_001
+    100010: Crotcho
+    100012: foot_L
+    100014: Foot_R
+    100016: Gun
+    100018: hand_L
+    100020: head
+    100022: Leg_L
+    100024: leg_Low_L
+    100026: Leg_Low_R
+    100028: LEG_R
+    100030: Legs
+    100032: Legs_Armature
+    100034: Torso
+    100036: torso
+    100038: Torso_Armature
     400000: //RootNode
+    400002: Arm_Low_L
+    400004: Arm_Up_L
+    400006: arm_up_R
+    400008: Bone_001
+    400010: Crotcho
+    400012: foot_L
+    400014: Foot_R
+    400016: Gun
+    400018: hand_L
+    400020: head
+    400022: Leg_L
+    400024: leg_Low_L
+    400026: Leg_Low_R
+    400028: LEG_R
+    400030: Legs
+    400032: Legs_Armature
+    400034: Torso
+    400036: torso
+    400038: Torso_Armature
+    2300000: Legs
+    2300002: Torso
+    3300000: Legs
+    3300002: Torso
+    4300000: Torso
+    4300002: Legs
   materials:
     importMaterials: 1
     materialName: 0

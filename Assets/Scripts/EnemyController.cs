@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     public float MoveForce;
     public float DragCoeff;
+    public float health;
 
     [SerializeField] float _bloodAmount;
     [SerializeField] GameObject _deathParticles;
@@ -30,8 +31,11 @@ public class EnemyController : MonoBehaviour
 
     void OnGetShot()
     {
-        Instantiate(_deathParticles, transform.position, Quaternion.identity);
-        FindObjectOfType<BloodController>().IncreaseAmbientBloodLevel(_bloodAmount);
-        Destroy(gameObject);
+        health -= 1.0f;
+        if (health < 0.0f) {
+            Instantiate(_deathParticles, transform.position, Quaternion.identity);
+            FindObjectOfType<BloodController>().IncreaseAmbientBloodLevel(_bloodAmount);
+            Destroy(gameObject);
+        }
     }
 }

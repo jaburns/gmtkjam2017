@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _bloodMeter;
     [SerializeField] float _bloodDrinkSpeed;
     [SerializeField] float _bloodPerBullet;
+    [SerializeField] float _bulletHeight;
+
+    [SerializeField] GameObject _moveThingA;
+    [SerializeField] GameObject _moveThingB;
 
     bool _inBlood = false;
     bool _inBloodMode = false;
@@ -31,6 +35,9 @@ public class PlayerController : MonoBehaviour
     bool _clickDrinking = false;
     bool _clickShooting = false;
     bool _clickDone = false;
+
+    Vector3 _aimVec;
+    Vector3 _forceVec;
 
     Collider _curGround = null;
 
@@ -61,10 +68,15 @@ public class PlayerController : MonoBehaviour
         }
         _pressedSpace = Input.GetKey(KeyCode.Space);
 
-        if (Input.GetKey(KeyCode.W)) { sendWalkMessage(); _rb.AddForce(_curMovement.MoveForce * Vector3.forward); }
-        if (Input.GetKey(KeyCode.S)) { sendWalkMessage(); _rb.AddForce(_curMovement.MoveForce * Vector3.back); }
-        if (Input.GetKey(KeyCode.A)) { sendWalkMessage(); _rb.AddForce(_curMovement.MoveForce * Vector3.left); } 
-        if (Input.GetKey(KeyCode.D)) { sendWalkMessage(); _rb.AddForce(_curMovement.MoveForce * Vector3.right); }
+        var newForceVec = Vector3.zero;
+        var xxx = false;
+        if (Input.GetKey(KeyCode.W)) { xxx = true; sendWalkMessage(); newForceVec += (_curMovement.MoveForce * Vector3.forward); }
+        if (Input.GetKey(KeyCode.S)) { xxx = true; sendWalkMessage(); newForceVec += (_curMovement.MoveForce * Vector3.back); }
+        if (Input.GetKey(KeyCode.A)) { xxx = true; sendWalkMessage(); newForceVec += (_curMovement.MoveForce * Vector3.left); } 
+        if (Input.GetKey(KeyCode.D)) { xxx = true; sendWalkMessage(); newForceVec += (_curMovement.MoveForce * Vector3.right); }
+
+        _rb.AddForce(newForceVec);
+        if (xxx) _forceVec = newForceVec;
 
         var v_xz = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
 
@@ -102,7 +114,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        var playerPlane = new Plane(Vector3.up, transform.position);
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        float rayDistance;
+        if (! playerPlane.Raycast(ray, out rayDistance)) return;
+        var aimPos = ray.GetPoint(rayDistance);
+        _aimVec = (aimPos - transform.position).normalized;
+        _aimVec.y = 0;
+
         _bloodMeter.transform.localScale += Vector3.up * (PersonalBlood - _bloodMeter.transform.localScale.y) / 2.0f;
+        _moveThingB.transform.rotation = Quaternion.Euler(0.0f, 270.0f + Mathf.Rad2Deg * Mathf.Atan2(-_aimVec.z, _aimVec.x), 0.0f);
+        _moveThingA.transform.rotation = Quaternion.Euler(0.0f, 90.0f + Mathf.Rad2Deg * Mathf.Atan2(-_forceVec.z, _forceVec.x), 0.0f);
     }
 
     void drink()
@@ -122,16 +144,9 @@ public class PlayerController : MonoBehaviour
     {
         if (PersonalBlood < 0.001f) return;
 
-        var playerPlane = new Plane(Vector3.up, _rb.position);
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float rayDistance;
-        if (! playerPlane.Raycast(ray, out rayDistance)) return;
-        var aimPos = ray.GetPoint(rayDistance);
-        var aimVec = (aimPos - _rb.position).normalized;
-
-        var bullet = Instantiate(_bulletPrefab, _rb.position, Quaternion.identity) as GameObject;
+        var bullet = Instantiate(_bulletPrefab, _rb.position + Vector3.up * _bulletHeight, Quaternion.identity) as GameObject;
         var bc = bullet.GetComponent<BulletController>();
-        bc.Init(this, aimVec);
+        bc.Init(this, _aimVec);
         _livingBullets++;
         PersonalBlood -= _bloodPerBullet;
         if (PersonalBlood < 0.0f) PersonalBlood = 0.0f;
