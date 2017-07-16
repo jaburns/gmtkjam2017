@@ -30,10 +30,12 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        var ndifs = _player.transform.position - transform.position;
+
+        if (Mathf.Abs(ndifs.y) > 5.0f) return;
         if (_player == null) return;
 
-        var dxz = (_player.transform.position - transform.position).normalized;
-
+        var dxz = ndifs.normalized;
         dxz.y = 0;
         _rb.AddForce((dxz + _randomness*_randWalk).normalized * MoveForce);
         var v_xz = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
