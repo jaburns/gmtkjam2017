@@ -55,12 +55,16 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    bool killed = false;
     void OnGetShot()
     {
+        if (killed) return;
         health -= 1.0f;
         if (health < 0.0f) {
+            killed = true;
             Instantiate(_deathParticles, transform.position, Quaternion.identity);
             FindObjectOfType<BloodController>().IncreaseAmbientBloodLevel(_bloodAmount);
+            FindObjectOfType<CameraController>().Shake();
             Destroy(gameObject);
         }
     }

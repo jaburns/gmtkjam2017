@@ -8,7 +8,7 @@ public class BulletController : MonoBehaviour
     [SerializeField] float _speed; 
     [SerializeField] GameObject _deathParticles; 
     PlayerController _pc;
-    float _t;
+    float _t = -1f;
 
     public void Init(PlayerController pc, Vector3 direction)
     {
@@ -17,10 +17,9 @@ public class BulletController : MonoBehaviour
         GetComponent<Rigidbody>().velocity = direction * _speed;
     }
 
-
     void FixedUpdate()
     {
-        if (Time.time > _t + 2.0f) {
+        if (_t > 0.0f && Time.time > _t + 2.0f) {
             Destroy(gameObject);
         }
     }
@@ -31,7 +30,9 @@ public class BulletController : MonoBehaviour
             o.otherCollider.SendMessage(_pc == null ? "OnGetEnemyShot" : "OnGetShot", SendMessageOptions.DontRequireReceiver);
         }
 
-        Instantiate(_deathParticles, transform.position, Quaternion.FromToRotation(Vector3.forward, c.contacts[0].normal));
-        Destroy(gameObject);
+        if (_t >= 0.0f) {
+            Instantiate(_deathParticles, transform.position, Quaternion.FromToRotation(Vector3.forward, c.contacts[0].normal));
+            Destroy(gameObject);
+        }
     }
 }
