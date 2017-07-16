@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] float _rockFrequency;
     [SerializeField] float _shakeAttack = 0.1f;
     [SerializeField] float _shakeDecay = 0.95f;
+    [SerializeField] float _lowLevelShake = 0.01f;
 
     PlayerController _blood;
     Rigidbody _rb;
@@ -18,6 +19,9 @@ public class CameraController : MonoBehaviour
 
     Vector3 _shakeVector;
     float _shakeWeight;
+
+    [HideInInspector]
+    public bool LowLevelShake = false;
 
     void Start()
     {
@@ -31,6 +35,9 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (LowLevelShake && _shakeWeight < _lowLevelShake) {
+            _shakeWeight = _lowLevelShake;
+        }
         _shakeVector = (new Vector3(Random.value-0.5f, 0, Random.value-0.5f)).normalized;
         _shakeVector *= _shakeWeight;
         _shakeWeight *= _shakeDecay;

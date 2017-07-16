@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     Vector3 _forceVec;
     Animator _anim;
 
+    CameraController _cam;
     Collider _curGround = null;
     GameObject _splash;
 
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         _bloodController = FindObjectOfType<BloodController>();
         _rb = GetComponent<Rigidbody>();
+        _cam = FindObjectOfType<CameraController>();
         PersonalBlood = 1.0f;
 
         _splash = transform.Find("SplashingAround").gameObject;
@@ -104,6 +106,8 @@ public class PlayerController : MonoBehaviour
             _clickShooting = false;
         }
 
+        _cam.LowLevelShake = false;
+
         if (!_clickDone) {
             if (_clickDrinking) {
                 if (_inBlood) drink();
@@ -155,6 +159,8 @@ public class PlayerController : MonoBehaviour
     void shoot()
     {
         if (PersonalBlood < 0.001f) return;
+
+        _cam.LowLevelShake = true;
 
         var bullet = Instantiate(_bulletPrefab, _rb.position + Vector3.up * _bulletHeight, Quaternion.identity) as GameObject;
         var bc = bullet.GetComponent<BulletController>();
