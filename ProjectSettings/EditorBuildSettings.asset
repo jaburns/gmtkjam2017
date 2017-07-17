@@ -11,6 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene.unity
     guid: 1c9dec0175ce94bdca4281f0a61ecf67
-  - enabled: 1
+  - enabled: 0
     path: Assets/Endor.unity
-    guid: 00000000000000000000000000000000
+    guid: ae81c24ece7e544fc80f45813fae8105
