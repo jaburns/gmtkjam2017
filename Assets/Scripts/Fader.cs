@@ -28,7 +28,7 @@ public class Fader : MonoBehaviour
 		if (_fadingToBlack) {
 			_fadingToBlackT += _fadeToBlackRate;
 			if (_fadingToBlackT > 1f) {
-				SceneManager.LoadScene("Endor");
+				SceneManager.LoadScene("Intro");
 			}
 			_fadeToBlackColor.a = _fadingToBlackT;
 			_fadeMat.SetColor("_Color", _fadeToBlackColor);
